@@ -1,7 +1,7 @@
 ===== A Fazer =====
 
 Brand:
-- Criar um Logo
+# - Criar um Logo
 - Criar um Nome
 - Criar algumas informações fictícias como: Localização, Contactos, etc...
 
