@@ -9,21 +9,29 @@
 
 <body>
     <header>
-        <h1>LOGO</h1> <!-- Ou Nome -->
+        <img src="/images/logo-white.png" alt="Logo">
 
         <div class="header-button-container">
             <button onclick="alert('Login!')">Login</button>
         </div>
     </header>
+
+    <nav-bar>
+        <nav>
+            <ul>
+                <a href="#home"><li>Home</li></a>
+                <a href="#veiculos"><li>Veículos</li></a>
+                <a href="#servicos"><li>Serviços</li></a>
+                <a href="#contato"><li>Contato</li></a>
+            </ul>
+        </nav>
+
+        <nav-mask>
+            <div class="nav-mask"></div>
+        </nav-mask>
+    </nav-bar>
     
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#veiculos">Veículos</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </nav>
+    
 
     <div>
         <div class="home-img-container">
@@ -52,7 +60,17 @@
     </section>
 
     <footer>
-        <p>&copy; 2023 Concessionária XYZ</p>
+        <div class="footer-extra">
+            <img src="logo" alt="LOGO">
+
+            <div>
+                <!-- creditos -->
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <p>&copy; 2023 Concessionária XYZ</p>
+        </div>
     </footer>
 
     <script src="scripts.js"></script>
