@@ -78,12 +78,16 @@ nav-mask {
     
     .header-button-container button {
         font-size: 1.5em;
-        background-color: rgb(3, 135, 167);
+        /* background-color: rgb(3, 135, 167); */
+        background-color: whitesmoke;
         color: white;
         padding: 10px 20px;
         border-radius: 50px;
         border: 0;
         cursor: pointer;
+    }
+    #login-button{
+        color:black;
     }
 
 .home-img-container {
@@ -98,19 +102,19 @@ nav-mask {
     .home-img-container h1,
     .home-img-container h2 {
         color: white;
-        font-family: "Nova Square", Arial, Helvetica, sans-serif;
+        font-family: "Ubuntu", Arial, Helvetica, sans-serif;
         position: absolute;
         left: 10vw;
-        text-shadow: 1px 1px 2px black;
+        text-shadow: 2px 2px 3px black;
     }
 
     .home-img-container h1 {
-        bottom: 4vw;
+        bottom: 10vw;
         font-size: 4vw;
     }
 
     .home-img-container h2 {
-        bottom: 1vw;
+        bottom: 7vw;
         font-size: 3vw;
     }
 
@@ -138,6 +142,28 @@ section {
     margin: 10px;
     padding-bottom: 500px; /* content simulado */
 }
+.info-contato {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.info-contato h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.info-contato p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.info-contato a {
+    text-decoration: none;
+    color: white;
+}
+
 
     .home-title {
         font-size: 1.5em;
