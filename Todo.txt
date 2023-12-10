@@ -1,11 +1,5 @@
 ===== A Fazer =====
 
-Brand:
-# - Criar um Logo
-# - Criar um Nome
-# Criar algumas informações fictícias como: Localização, Contactos, etc...
-
-Web:
-- Criar mais algumas views
-- Melhorar o design
-- Implementar alguma responsividade
+Gonçalo:
+- Implementar a responsividade;
+- Melhorar o footer.

@@ -17,7 +17,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
+    padding: 10px 10%;
     position: relative;
     z-index: 3;
 }
@@ -30,9 +30,10 @@ nav, nav-mask {
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
-    height: calc(100% - 40px);
-    top: 40px;
+    height: calc(100% - 20px);
+    top: 20px;
     z-index: 4;
+    pointer-events: none;
 }
 
 nav-mask {
@@ -65,6 +66,8 @@ nav-mask {
             display: inline-block;
             padding: 15px;
             color: #fff;
+            pointer-events: all;
+
         }
 
         nav ul li:hover {
@@ -93,6 +96,7 @@ nav-mask {
 .home-img-container {
     position: relative;
     height: fit-content;
+    padding-top: 20px;
 }
 
     .imageHome{
@@ -140,8 +144,52 @@ section {
     padding: 20px;
     padding-top: 75px;
     margin: 10px;
-    padding-bottom: 500px; /* content simulado */
 }
+
+    #veiculos {
+        height: calc(100vh - 105px);
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+.car-cards-container {
+    width: 100%;
+}
+
+.car-cards-container ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: auto;
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+    .car-cards-container ul li {
+        margin: 15px;
+        padding: 15px;
+        background-color: #333;
+        color: white;
+        transition: margin 1s, padding 1s, border-radius 1s;
+        box-sizing: border-box;
+    }
+
+    .car-cards-container ul:hover li {
+        margin: 25px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+        .car-cards-container ul li:hover {
+            margin: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
 .info-contato {
     background-color: transparent;
     padding: 20px;
@@ -164,14 +212,11 @@ section {
     color: white;
 }
 
-
     .home-title {
-        font-size: 1.5em;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        background-color: #333333b3;
+        font-size: 2em;
+        font-family: "Ubuntu", 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         border-radius: 10px;
-        color: #ffffffe9;
-        text-align: center;
+        color: black;
         width: fit-content;
         padding: 10px;
         margin-left: auto;
