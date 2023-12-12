@@ -1,5 +1,4 @@
 ===== A Fazer =====
 
-Gonçalo:
-- Implementar a responsividade;
-- Melhorar o footer.
+- Criar uma página de simulação de Login
+- Criar uma página para simular o display de carros com pesquisa
