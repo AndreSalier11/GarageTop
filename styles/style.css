@@ -154,7 +154,26 @@ section {
         height: calc(100vh - 105px);
         display: flex;
         flex-wrap: wrap;
-        align-content: center;
+        justify-content: center;
+        align-content: space-around;
+    }
+
+    .showmore-btn {
+        font-size: 2em;
+        background-color: white;
+        border: 3px solid #333;
+        border-radius: 10px;
+        padding: 10px 30px;
+        color: #333;
+        transition: .2s background-color, .2s color;
+    }
+
+    .showmore-btn:hover {
+        background-color: #999;
+        border: 3px solid #333;
+        border-radius: 10px;
+        padding: 10px 30px;
+        color: white;
     }
 
 .car-cards-container {
@@ -268,6 +287,89 @@ footer {
         transform: translateX(-50%);
         text-align: center;
     }
+
+/* Login Page */
+
+.login-content {
+    min-height: 100vh;
+    background: rgb(255,255,255);
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(76,147,187,1) 50%, rgba(3,47,56,1) 100%);
+}
+
+    .login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+        .login-container {
+            width: fit-content;
+            background-color: #cfcfcf;
+            display: flex;
+            padding: 40px;
+            border-radius: 10px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 20px 20px 50px #333;
+            background-color: white;
+            border: solid 3px #333;
+        }
+
+        .login-container p {
+            font-size: 1.8em;
+            margin: 5px;
+        }
+
+        .login-container input {
+            font-size: 1.5em;
+            border: none;
+            border-bottom: 1px solid black;
+        }
+
+        input:focus {
+            outline: none;
+            background-color: rgb(231, 231, 231);
+        }
+
+        #input-email {
+            margin-bottom: 30px;
+        }
+
+        .login-container button {
+            width: 100%;
+            font-size: 1.5em;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-btn {
+            margin-top: 40px;
+            background-color: #ffffff;
+            border: 3px solid green;
+            color: green;
+            transition: .2s background-color, .2s color;
+        }
+
+        .login-cancel {
+            margin-top: 20px;
+            background-color: #ffffff;
+            border: 3px solid rgb(162, 0, 0);
+            color: rgb(162, 0, 0);
+            transition: .2s background-color, .2s color;
+        }
+
+        .login-btn:hover {
+            background-color: rgb(73, 172, 80);
+            color: white;
+        }
+
+        .login-cancel:hover {
+            background-color: rgb(252, 92, 92);
+            color: white;
+        }
 
 /* Scroll Bar */
 
