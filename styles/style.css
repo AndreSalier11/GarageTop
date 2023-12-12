@@ -293,7 +293,7 @@ footer {
 .login-content {
     min-height: 100vh;
     background: rgb(255,255,255);
-    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(76,147,187,1) 50%, rgba(3,47,56,1) 100%);
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(76,147,187,1) 50%, rgba(3,47,56,1) 120%);
 }
 
     .login {
@@ -310,9 +310,10 @@ footer {
             padding: 40px;
             border-radius: 10px;
             flex-direction: column;
+            margin-bottom: 300px;
             align-items: center;
             justify-content: center;
-            box-shadow: 20px 20px 50px #333;
+            box-shadow: 1px 20px 50px #333;
             background-color: white;
             border: solid 3px #333;
         }
@@ -348,16 +349,16 @@ footer {
         .login-btn {
             margin-top: 40px;
             background-color: #ffffff;
-            border: 3px solid green;
-            color: green;
+            border: 3px solid grey;
+            color: black;
             transition: .2s background-color, .2s color;
         }
 
         .login-cancel {
             margin-top: 20px;
             background-color: #ffffff;
-            border: 3px solid rgb(162, 0, 0);
-            color: rgb(162, 0, 0);
+            border: 3px solid grey;
+            color: black;
             transition: .2s background-color, .2s color;
         }
 
