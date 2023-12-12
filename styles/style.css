@@ -273,7 +273,7 @@ footer {
     padding: 10px 20px;
     position: relative;
     bottom: 0;
-    min-height: 100vh;
+    min-height: 500px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -371,6 +371,24 @@ footer {
             color: white;
         }
 
+/* Cars Page */
+
+.search-car ul {
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.search-bar {
+    width: 50%;
+    border: 1px solid #333;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 /* Scroll Bar */
 
 ::-webkit-scrollbar { /* width */
@@ -393,7 +411,7 @@ footer {
 
 /* Responsive */
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 730px) {
     header img {
         width: 50px;
     }
@@ -443,5 +461,13 @@ footer {
 
     .home-img-container h2 {
         font-size: 1.5em;
+    }
+
+    footer {
+        min-height: 100vh;
+    }
+
+    .search-bar {
+        width: 90%;
     }
 }

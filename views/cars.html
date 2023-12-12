@@ -12,20 +12,17 @@
 
 <body>
     <header id="home">
-        <img src="/images/logo-white.png" alt="Logo"> <!-- /GarageTop/images/logo-white.png -->
+        <a href="/views/index.html"><img src="/images/logo-white.png" alt="Logo"></a> <!-- /GarageTop/images/logo-white.png -->
 
         <div class="header-button-container">
-            <button id="login-button" onclick="alert('Login!')">Login</button>
+            <a href="/views/login.html"><button id="login-button">Login</button></a> <!-- /GarageTop/views/login.html -->
         </div>
     </header>
 
     <nav-bar>
         <nav>
             <ul>
-                <a href="#home">
-                    <li>Home</li>
-                </a>
-                <a href="#veiculos">
+                <a href="#carros">
                     <li>Veículos</li>
                 </a>
                 <a href="#contacto">
@@ -39,8 +36,97 @@
         </nav-mask>
     </nav-bar>
 
-    <section>
+    <section id="carros">
+        <input type="text" class="search-bar" placeholder="Pesquisa...">
 
+        <div class="car-cards-container search-car">
+            <ul>
+                <li>
+                    <img class="card-image" src="/images/cars/amg-gt.png">
+                    <div class="card-car-name">Mercedez-AMG GT Coupé</div>
+                    <div class="car-info-container">
+                        <div class="card-car-info">577HP | 3 Portas | Gasolina | Automatico</div>
+                    </div>
+                    <div class="card-car-price">230.000€</div>
+                </li>
+                <li>
+                    <img class="card-image" src="/images/cars/BMW_X6_M60i.png">
+                    <div class="card-car-name">BMW X6 M60i</div>
+                    <div class="car-info-container">
+                        <div class="card-car-info">523HP | 5 Portas | Gasolina | Automatico</div>
+                    </div>
+                    <div class="card-car-price">135.000€</div>
+
+
+                </li>
+                <li>
+                    <img class="card-image" src="/images/cars/G-Class-Wagon-G63.png">
+                    <div class="card-car-name">G-Class Wagon G63</div>
+                    <div class="car-info-container">
+                        <div class="card-car-info">585HP | 5 Portas | Gasolina | Automatico</div>
+                    </div>
+                    <div class="card-car-price">180.000€</div>
+
+
+                </li>
+                <li>
+                    <img class="card-image" src="/images/cars/2017_bentley_continental_gt_v8.png">
+                    <div class="card-car-name">Bentley continental GT</div> <!--nome-->
+                    <div class="car-info-container">
+                        <div class="card-car-info">542HP | 3 Portas | Gasolina | Automatico</div>
+                    </div>
+                    <div class="card-car-price">275.000€</div>
+
+
+                </li>
+                <li>
+                    <img class="card-image" src="/images/cars/amg-gt.png">
+                    <div class="card-car-name">Mercedez-AMG GT Coupé</div>
+                    <div class="car-info-container">
+                        <div class="card-car-info">577HP | 3 Portas | Gasolina | Automatico</div>
+                    </div>
+                    <div class="card-car-price">230.000€</div>
+                </li>
+                <li>
+                    <img class="card-image" src="/images/cars/BMW_X6_M60i.png">
+                    <div class="card-car-name">BMW X6 M60i</div>
+                    <div class="car-info-container">
+                        <div class="card-car-info">523HP | 5 Portas | Gasolina | Automatico</div>
+                    </div>
+                    <div class="card-car-price">135.000€</div>
+
+
+                </li>
+                <li>
+                    <img class="card-image" src="/images/cars/G-Class-Wagon-G63.png">
+                    <div class="card-car-name">G-Class Wagon G63</div>
+                    <div class="car-info-container">
+                        <div class="card-car-info">585HP | 5 Portas | Gasolina | Automatico</div>
+                    </div>
+                    <div class="card-car-price">180.000€</div>
+
+
+                </li>
+                <li>
+                    <img class="card-image" src="/images/cars/2017_bentley_continental_gt_v8.png">
+                    <div class="card-car-name">Bentley continental GT</div> <!--nome-->
+                    <div class="car-info-container">
+                        <div class="card-car-info">542HP | 3 Portas | Gasolina | Automatico</div>
+                    </div>
+                    <div class="card-car-price">275.000€</div>
+
+
+                </li>
+                <li>
+                    <img class="card-image" src="/images/cars/amg-gt.png">
+                    <div class="card-car-name">Mercedez-AMG GT Coupé</div>
+                    <div class="car-info-container">
+                        <div class="card-car-info">577HP | 3 Portas | Gasolina | Automatico</div>
+                    </div>
+                    <div class="card-car-price">230.000€</div>
+                </li>
+            </ul>
+        </div>
     </section>
 
     <footer id="contacto">
