@@ -175,11 +175,13 @@ section {
 .card-car-price{
     font-size: 1.6em;
     text-align: end;
-    
+}
+
 .car-info-container{
     display: flex;
     width: 100%;
     font-size: 0.8em;
+}
 
 .car-cards-container ul li {
     margin: 20px;
@@ -296,7 +298,7 @@ footer {
 
     nav, nav-mask {
         top: 60px;
-        height: calc(100% - 45px);
+        height: calc(100% - 60px);
     }
 
     .nav-mask {
