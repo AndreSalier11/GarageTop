@@ -167,11 +167,31 @@ section {
     padding: 0;
     padding-bottom: 10px;
 }
+<<<<<<< Updated upstream
 
     .car-cards-container ul li {
         margin: 15px;
         padding: 15px;
         background-color: #333;
+=======
+.car-info-container{
+    width: 100%;
+    font-size: 0.8em;
+    margin: 10px 0px 10px 0px;
+}
+.card-car-price{
+    font-size: 1.6em;
+    text-align: end;
+    
+}
+.car-cards-container ul li {
+    margin: 20px;
+    padding: 15px;
+    height: fit-content;
+    width: min-content;
+    background-color: #333;
+    border-radius: 15px;
+>>>>>>> Stashed changes
         color: white;
         transition: margin 1s, padding 1s, border-radius 1s;
         box-sizing: border-box;
@@ -190,6 +210,16 @@ section {
             cursor: pointer;
         }
 
+<<<<<<< Updated upstream
+=======
+.card-image {
+    border-radius: 15px;
+    object-fit: cover;
+    background-color: rgb(226, 226, 226);
+    max-width: 200px;
+}
+
+>>>>>>> Stashed changes
 .info-contato {
     background-color: transparent;
     padding: 20px;
@@ -249,6 +279,7 @@ footer {
 
     ::-webkit-scrollbar-track { /* Track */
         background: #f1f1f1; 
+        
     }
 
     ::-webkit-scrollbar-thumb { /* Handle */
