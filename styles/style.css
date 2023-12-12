@@ -36,6 +36,10 @@ nav, nav-mask {
     pointer-events: none;
 }
 
+nav {
+    width: 100%;
+}
+
 nav-mask {
     z-index: 2;
 }
@@ -47,6 +51,7 @@ nav-mask {
         height: 40px;
         position: sticky;
         top: -1px;
+        overflow: clip;
     }
 
     nav ul {
@@ -89,6 +94,7 @@ nav-mask {
         border: 0;
         cursor: pointer;
     }
+
     #login-button{
         color:black;
     }
@@ -131,13 +137,11 @@ nav-mask {
 .cropImageTop{
     height: 100px;
     position: absolute;
-    background-color: red;
 }
 
 .cropImagebottom{
     height: 100px;
     position: absolute;
-    background-color: red;
 }
 
 section {
@@ -167,23 +171,16 @@ section {
     padding: 0;
     padding-bottom: 10px;
 }
-<<<<<<< Updated upstream
 
-    .car-cards-container ul li {
-        margin: 15px;
-        padding: 15px;
-        background-color: #333;
-=======
-.car-info-container{
-    width: 100%;
-    font-size: 0.8em;
-    margin: 10px 0px 10px 0px;
-}
 .card-car-price{
     font-size: 1.6em;
     text-align: end;
     
-}
+.car-info-container{
+    display: flex;
+    width: 100%;
+    font-size: 0.8em;
+
 .car-cards-container ul li {
     margin: 20px;
     padding: 15px;
@@ -191,27 +188,24 @@ section {
     width: min-content;
     background-color: #333;
     border-radius: 15px;
->>>>>>> Stashed changes
-        color: white;
-        transition: margin 1s, padding 1s, border-radius 1s;
-        box-sizing: border-box;
-    }
+    color: white;
+    transition: margin .5s, padding .5s, border-radius .5s;
+    box-sizing: border-box;
+}
 
     .car-cards-container ul:hover li {
         margin: 25px;
-        padding: 5px;
-        border-radius: 5px;
+        padding: 10px;
+        border-radius: 15px;
     }
 
         .car-cards-container ul li:hover {
-            margin: 15px;
+            margin: 20px;
             padding: 15px;
             border-radius: 10px;
             cursor: pointer;
         }
 
-<<<<<<< Updated upstream
-=======
 .card-image {
     border-radius: 15px;
     object-fit: cover;
@@ -219,7 +213,6 @@ section {
     max-width: 200px;
 }
 
->>>>>>> Stashed changes
 .info-contato {
     background-color: transparent;
     padding: 20px;
@@ -234,7 +227,7 @@ section {
 
 .info-contato p {
     font-size: 16px;
-    margin-bottom: 30   px;
+    margin-bottom: 30px;
 }
 
 .info-contato a {
@@ -259,8 +252,11 @@ footer {
     padding: 10px 20px;
     position: relative;
     bottom: 0;
-    /* width: 100%; */
-    height: 55%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
     .footer-copyright {
@@ -290,3 +286,58 @@ footer {
     ::-webkit-scrollbar-thumb:hover { /* Handle on hover */
         background: #555; 
     }
+
+/* Responsive */
+
+@media only screen and (max-width: 680px) {
+    header img {
+        width: 50px;
+    }
+
+    nav, nav-mask {
+        top: 60px;
+        height: calc(100% - 45px);
+    }
+
+    .nav-mask {
+        display: none;
+    }
+
+    #login-button {
+        font-size: 1em;
+    }
+
+    .home-img-container {
+        margin: 0;
+        padding: 0;
+        padding-top: 70px;
+        min-height: calc(100vh - 140px);
+        overflow-x: hidden;
+        background-color: #e6e6e6;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .imageHome{
+        margin-left: 50%;
+        transform: translateX(-50%);
+        min-width: 500px;
+    }
+
+    .home-img-container h1,
+    .home-img-container h2 {
+        color: black;
+        position: static;
+        text-shadow: none;
+    }
+
+    .home-img-container h1 {
+        font-size: 2em;
+    }
+
+    .home-img-container h2 {
+        font-size: 1.5em;
+    }
+}
