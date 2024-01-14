@@ -1,0 +1,27 @@
+.card-car-price{
+    font-size: 1.6em;
+    text-align: end;
+}
+
+.car-card-container  {
+    width: 20%;
+    margin: 20px;
+    padding: 15px;
+    height: fit-content;
+    width: min-content;
+    background-color: #333;
+    border-radius: 15px;
+    transition: margin .5s, padding .5s, border-radius .5s;
+    box-sizing: border-box;
+}   
+
+.card-image {
+    border-radius: 15px;
+    object-fit: cover;
+    background-color: rgb(226, 226, 226);
+    max-width: 200px;
+}
+a{
+    text-decoration: none;
+    color: white;   
+}

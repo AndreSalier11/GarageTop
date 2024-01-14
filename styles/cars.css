@@ -1,0 +1,25 @@
+.search-car ul {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.search-bar {
+    width: 50%;
+    border: 1px solid #333;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1.5em;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 730px) {
+    .search-bar {
+        margin-top: 80px;
+        width: 90%;
+    }
+}

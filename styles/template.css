@@ -1,0 +1,174 @@
+html {
+    font-family: Arial, sans-serif;
+    height: 100%
+}
+
+body {
+    position: relative;
+    max-width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Header / Navigation */
+
+header {
+    background-color: #333;
+    color: #fff;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10%;
+    position: relative;
+    z-index: 3;
+}
+
+    header img {
+        width: 100px;
+    }
+
+nav, nav-mask {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    height: calc(100% - 20px);
+    top: 20px;
+    z-index: 4;
+    pointer-events: none;
+}
+
+nav {
+    width: 100%;
+}
+
+nav-mask {
+    z-index: 2;
+}
+
+    .nav-mask {
+        background-color: #333;
+        z-index: 1;
+        width: calc(100vw - 10px);
+        height: 40px;
+        position: sticky;
+        top: -1px;
+        overflow: clip;
+    }
+
+    nav ul {
+        z-index: 2;
+        background-color: #333;
+        border-radius: 20px;
+        width: fit-content;
+        list-style: none;
+        position: sticky;
+        top: 5px;
+        padding: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        nav ul li {
+            display: inline-block;
+            padding: 15px;
+            color: #fff;
+            pointer-events: all;
+
+        }
+
+        nav ul a li:hover {
+            background-color: #565656;
+            border-radius: 20px;
+        }
+
+            nav ul a {
+                text-decoration: none;
+            }
+    
+    .header-button-container button {
+        font-size: 1.5em;
+        /* background-color: rgb(3, 135, 167); */
+        background-color: whitesmoke;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        border: 0;
+        cursor: pointer;
+    }
+
+    #login-button{
+        color:black;
+    }
+
+/* Footer */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: relative;
+    bottom: 0;
+    min-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+    .footer-copyright {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+/* Scroll Bar */
+
+::-webkit-scrollbar { /* width */
+    width: 10px;
+}
+
+    ::-webkit-scrollbar-track { /* Track */
+        background: #f1f1f1; 
+        
+    }
+
+    ::-webkit-scrollbar-thumb { /* Handle */
+        background: #888; 
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+        background: #555; 
+    }
+
+/* Responsive */
+
+@media only screen and (max-width: 730px) {
+    header img {
+        width: 50px;
+    }
+
+    nav, nav-mask {
+        top: 60px;
+        height: calc(100% - 60px);
+    }
+
+    .nav-mask {
+        display: none;
+    }
+
+    #login-button {
+        font-size: 1em;
+    }
+
+    footer {
+        min-height: 100vh;
+    }
+}

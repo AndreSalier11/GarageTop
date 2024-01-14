@@ -1,0 +1,80 @@
+.car-cards-container {
+    width: 100%;
+}
+
+.car-cards-container ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: auto;
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+.card-car-price{
+    font-size: 1.6em;
+    text-align: end;
+}
+
+.car-info-container{
+    display: flex;
+    width: 100%;
+    font-size: 0.8em;
+}
+
+.car-cards-container ul li {
+    margin: 20px;
+    padding: 15px;
+    height: fit-content;
+    width: min-content;
+    text-decoration: none;
+    background-color: #333;
+    border-radius: 15px;
+    color: white;
+    transition: margin .5s, padding .5s, border-radius .5s;
+    box-sizing: border-box;
+}
+
+    .car-cards-container ul:hover li {
+        margin: 25px;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+        .car-cards-container ul li:hover {
+            margin: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+.card-image {
+    border-radius: 15px;
+    object-fit: cover;
+    background-color: rgb(226, 226, 226);
+    max-width: 200px;
+}
+
+.info-contato {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.info-contato h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.info-contato p {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.info-contato a {
+    text-decoration: none;
+    color: white;
+}
