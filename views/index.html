@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
+    <title>GarageTop</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0 , minimum-scale=1.0 , maximum-scale=1.0" />
-    <title>GarageTop</title>
     <link rel="stylesheet" href="/styles/template.css"> <!-- /GarageTop/styles/template.css -->
     <link rel="stylesheet" href="/styles/home.css"> <!-- /GarageTop/styles/home.css -->
     <link rel="stylesheet" href="/styles/cards.css"> <!-- /GarageTop/styles/cards.css -->
@@ -56,8 +56,64 @@
         <h2 class="home-title">Os Nossos Veículos</h2>
 
         <div class="car-cards-container">
-            <ul>
-                <a href="https://www.google.com " target="_blank">
+            <ul id="listOfCarsUl">
+                <!-- Include Papa Parse library -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+                <script>
+                    // Fetch the CSV data
+                    fetch('/data/custom_car_list.csv')
+                    .then(response => response.text())
+                    .then(data => {
+                        // Parse the CSV data
+                        let results = Papa.parse(data, {header: true}).data;
+                        console.log(results);
+
+                        // Get the container to append car cards
+                        let container = document.querySelector('#listOfCarsUl');
+
+                        // Loop through each row in the CSV data
+                        for(let i = 0; i < results.length-1; i++) {
+                            // Create a new div for each car
+                            let carLink = document.createElement('a');
+                            carLink.href = 'https://www.google.com';
+                            carLink.target = '_blank';
+                            container.appendChild(carLink);
+
+                            let carContainer = document.createElement('li');
+
+                            carLink.appendChild(carContainer);
+
+                            let carImg = document.createElement('img');
+                            carImg.className = 'card-image';
+                            carImg.src = results[i].Img;
+                            carImg.height = '300';
+
+                            let carName = document.createElement('p');
+                            carName.className = 'card-car-name';
+                            carName.innerHTML = results[i].Make + ' ' + results[i].Model;
+
+                            let carInfoContainer = document.createElement('div');
+                            carInfoContainer.className = 'car-info-container';
+
+                            let carInfo = document.createElement('p');
+                            carInfo.className = 'card-car-info';
+                            carInfo.innerHTML = results[i].Kilometer + 'km | Lotação máx: ' + results[i].SeatingCapacity + ' | Cor: ' + results[i].Color + ' | ' + results[i].Engine;
+                            carInfoContainer.appendChild(carInfo);
+
+                            let carPrice = document.createElement('p');
+                            carPrice.className = 'card-car-price';
+                            carPrice.innerHTML = results[i].Price + '€';
+
+                            carContainer.appendChild(carImg);
+                            carContainer.appendChild(carName);
+                            carContainer.appendChild(carInfoContainer);
+                            carContainer.appendChild(carPrice);
+                        }
+                    });
+                </script>
+
+                <!-- <a href="https://www.google.com " target="_blank">
                     <li>
                         <img class="card-image" src="/images/cars/amg-gt.png">
                         <div class="card-car-name">Mercedez-AMG GT Coupé</div>
@@ -93,7 +149,7 @@
                 <a href="https://www.google.com " target="_blank">
                     <li>
                         <img class="card-image" src="/images/cars/2017_bentley_continental_gt_v8.png">
-                        <div class="card-car-name">Bentley continental GT</div> <!--nome-->
+                        <div class="card-car-name">Bentley continental GT</div>
                         <div class="car-info-container">
                             <div class="card-car-info">542HP | 3 Portas | Gasolina | Automatico</div>
                         </div>
@@ -139,7 +195,7 @@
                 <a href="https://www.google.com " target="_blank">
                     <li>
                         <img class="card-image" src="/images/cars/2017_bentley_continental_gt_v8.png">
-                        <div class="card-car-name">Bentley continental GT</div> <!--nome-->
+                        <div class="card-car-name">Bentley continental GT</div>
                         <div class="car-info-container">
                             <div class="card-car-info">542HP | 3 Portas | Gasolina | Automatico</div>
                         </div>
@@ -157,7 +213,7 @@
                         </div>
                         <div class="card-car-price">230.000€</div>
                     </li>
-                </a>
+                </a> -->
             </ul>
         </div>
 
