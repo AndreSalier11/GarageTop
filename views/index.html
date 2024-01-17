@@ -58,9 +58,9 @@
         <div class="car-cards-container">
             <ul id="listOfCarsUl">
                 <!-- Include Papa Parse library -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+                <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> -->
 
-                <script>
+                <!-- <sc    qript >
                     // Fetch the CSV data
                     fetch('/data/custom_car_list.csv')
                     .then(response => response.text())
@@ -103,7 +103,7 @@
 
                             let carPrice = document.createElement('p');
                             carPrice.className = 'card-car-price';
-                            carPrice.innerHTML = results[i].Price + '€';
+                            carPrice.innerHTML = results[i].Price / 100 + '€';
 
                             carContainer.appendChild(carImg);
                             carContainer.appendChild(carName);
@@ -111,109 +111,10 @@
                             carContainer.appendChild(carPrice);
                         }
                     });
-                </script>
+                </script> -->
 
-                <!-- <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/amg-gt.png">
-                        <div class="card-car-name">Mercedez-AMG GT Coupé</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">577HP | 3 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">230.000€</div>
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/BMW_X6_M60i.png">
-                        <div class="card-car-name">BMW X6 M60i</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">523HP | 5 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">135.000€</div>
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/G-Class-Wagon-G63.png">
-                        <div class="card-car-name">G-Class Wagon G63</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">585HP | 5 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">180.000€</div>
-
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/2017_bentley_continental_gt_v8.png">
-                        <div class="card-car-name">Bentley continental GT</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">542HP | 3 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">275.000€</div>
-
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/amg-gt.png">
-                        <div class="card-car-name">Mercedez-AMG GT Coupé</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">577HP | 3 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">230.000€</div>
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/BMW_X6_M60i.png">
-                        <div class="card-car-name">BMW X6 M60i</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">523HP | 5 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">135.000€</div>
-
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/G-Class-Wagon-G63.png">
-                        <div class="card-car-name">G-Class Wagon G63</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">585HP | 5 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">180.000€</div>
-
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/2017_bentley_continental_gt_v8.png">
-                        <div class="card-car-name">Bentley continental GT</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">542HP | 3 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">275.000€</div>
-
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/amg-gt.png">
-                        <div class="card-car-name">Mercedez-AMG GT Coupé</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">577HP | 3 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">230.000€</div>
-                    </li>
-                </a> -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+                <script src="/js/csvLoader.js" type="module"></script>
             </ul>
         </div>
 
@@ -244,8 +145,6 @@
             <p>&copy; 2023 Concessionária XYZ</p>
         </div>
     </footer>
-
-    <script src="scripts.js"></script>
 </body>
 
 </html>
