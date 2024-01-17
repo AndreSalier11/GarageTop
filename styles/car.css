@@ -1,27 +1,55 @@
-.card-car-price{
-    font-size: 1.6em;
-    text-align: end;
+body{
+    text-decoration: none;
+    color: white;
 }
-
+.car-card-container-flex  {
+    display: flex;
+    gap: 25px;
+}   
 .car-card-container  {
-    width: 20%;
+    gap: 100px;
     margin: 20px;
     padding: 15px;
-    height: fit-content;
-    width: min-content;
+    width: 97vw;
+    height: 1000px;
     background-color: #333;
     border-radius: 15px;
     transition: margin .5s, padding .5s, border-radius .5s;
     box-sizing: border-box;
 }   
-
+.car-all-info-container{
+    background-color: #414141;
+    border-radius: 20px;
+    width: 100%;
+    text-align: start;
+    max-height: 500px;
+}
 .card-image {
     border-radius: 15px;
     object-fit: cover;
     background-color: rgb(226, 226, 226);
-    max-width: 200px;
+    max-width: 800px;
+    max-height: 500px;
+    width: 800px;
+    height: 500px   ;
 }
-a{
-    text-decoration: none;
-    color: white;   
+.car-info-container{
+    padding: 15px;
+    margin-left: 20px;
+}
+.card-car-name{
+    margin-top: 20px;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.card-car-price{
+    font-size: 2rem;
+    margin-right: 20px;
+    text-align: start;
+    margin-left: 20px;
+}
+.discription-car{
+    margin-top: 20px;
+    max-width: 800px;
 }
