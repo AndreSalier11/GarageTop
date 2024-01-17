@@ -6,16 +6,18 @@ Todo o código devidamente validado pelo W3C Validator HTML e CSS.
 
 -Csv > JSON
 
-===== Implementar =====
-
--View apresentação do carro
-
 -Sistema de pesquisa
 
--Funções que validem o input de dados nos formulários
+===== Implementar =====
+
+-View apresentação do carro /////////
+
+-melhorar o design /////////////
+
+-Funções que validem o input de dados nos formulários 
 
 -Funções que alterem propriedades dos elementos, como por exemplo, o estilo do(s) elementos
 
 -login funcional
 
--melhorar o design
+-W3C Validator

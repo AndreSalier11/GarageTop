@@ -15,6 +15,65 @@
     transform: translateX(-50%);
 }
 
+/* Cards */
+#listOfCarsUl{
+    padding: 0;
+}
+
+.listOfCarsUl{
+    
+    display: flex;
+    display: inline-block;
+    text-align: left;
+    text-align: center;
+}
+.car-cards-container li{
+    margin:0px auto 0px auto;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 50px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    padding: 10px;
+    width: 70%;
+
+}
+.card-car-info, .card-car-price, .card-car-location{
+    margin-left: 20px;
+    opacity: 80%;
+}
+
+.car-info-container{
+    width: 100%;
+}
+
+.card-car-name{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px ;
+    font-weight: bold;  
+    width: 60vh;
+    opacity: 100%;
+}
+.card-image{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.card-car-flex-name-price{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.card-car-price{
+
+    font-weight: bold;
+    font-size: 2rem;
+    align-self: flex-end;
+    margin-left: auto;
+}
 /* Responsive */
 
 @media only screen and (max-width: 730px) {

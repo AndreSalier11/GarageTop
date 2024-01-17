@@ -1,6 +1,3 @@
-// import Papa from "https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js";
-
-// Fetch the CSV data
 async function loadCSV () {
     return fetch('/data/custom_car_list.csv')
     .then(response => response.text())
@@ -17,15 +14,117 @@ function getCar(carIdx, data) {
     return data[carIdx];
 }
 
-function populateWithRandomCards(amount, data) {
+function search(input, data) {
+    for (let i = 0; i < data.length; i++) {
+        const car = data[i];
+        const carValues = Object.values(car);
+
+        for (let j = 0; j < carValues.length; j++) {
+            const value = carValues[j];
+
+            if (typeof value === 'string' && value.toLowerCase().includes(input.toLowerCase())) {
+                displayCarsCar(i, data);
+                break;
+            }
+        }
+    }
+}
+
+function displayIndexCar(idx, data) {
+    // Get the container to append car cards
+    let container = document.querySelector('#listOfCarsUl');
+    // Create a new div for each car
+    let carLink = document.createElement('a');
+    carLink.href = 'https://www.google.com';
+    carLink.target = '_blank';
+    container.appendChild(carLink);
+
+    let carContainer = document.createElement('li');
+
+    carLink.appendChild(carContainer);
+
+    let carImg = document.createElement('img');
+    carImg.className = 'card-image';
+    carImg.src = data[idx].Img;
+    carImg.height = '300';
+
+    let carName = document.createElement('p');
+    carName.className = 'card-car-name';
+    carName.innerHTML = data[idx].Make + ' ' + data[idx].Model;
+
+    let carInfoContainer = document.createElement('div');
+    carInfoContainer.className = 'car-info-container';
+
+    let carInfo = document.createElement('p');
+    carInfo.className = 'card-car-info';
+    carInfo.innerHTML = data[idx].Kilometer + 'km | Lotação máx: ' + data[idx].SeatingCapacity + ' | Cor: ' + data[idx].Color + ' | ' + data[idx].Engine;
+    carInfoContainer.appendChild(carInfo);
+
+    let carPrice = document.createElement('p');
+    carPrice.className = 'card-car-price';
+    carPrice.innerHTML = data[idx].Price / 100 + '€';
+
+    carContainer.appendChild(carImg);
+    carContainer.appendChild(carName);
+    carContainer.appendChild(carInfoContainer);
+    carContainer.appendChild(carPrice);
+}
+
+function displayCarsCar(idx, data) {
+    // Get the container to append car cards
+    let container = document.querySelector('#listOfCarsUl');
+    // Create a new div for each car
+    let carLink = document.createElement('a');
+    carLink.href = 'https://www.google.com';
+    carLink.target = '_blank';
+    container.appendChild(carLink);
+
+    let carContainer = document.createElement('li');
+    carLink.appendChild(carContainer);
+
+    let carImg = document.createElement('img');
+    carImg.className = 'card-image';
+    carImg.src = data[idx].Img;
+    carImg.height = '200';
+
+    let carInfoContainer = document.createElement('div');
+    carInfoContainer.className = 'car-info-container';
+
+    let cardCarFlexNamePrice = document.createElement('div');
+    cardCarFlexNamePrice.className = "card-car-flex-name-price";
+
+    let carName = document.createElement('p');
+    carName.className = 'card-car-name';
+    carName.innerHTML = data[idx].Make + ' ' + data[idx].Model;
+
+    let carPrice = document.createElement('p');
+    carPrice.className = 'card-car-price';
+    carPrice.innerHTML = data[idx].Price / 100 + '€';
+
+    let carInfo = document.createElement('p');
+    carInfo.className = 'card-car-info';
+    carInfo.innerHTML = data[idx].Kilometer + 'km | Lotação máx: ' + data[idx].SeatingCapacity + ' | Cor: ' + data[idx].Color + ' | ' + data[idx].Engine;
+
+    cardCarFlexNamePrice.appendChild(carName);
+    cardCarFlexNamePrice.appendChild(carPrice);
+
+
+    let carLocation = document.createElement('p');
+    carLocation.className = "card-car-location";
+    carLocation.innerHTML = "Rua Dom Infante Henrique 343 Piso 2, 1198-028 Lisboa"
+
+    carInfoContainer.appendChild(cardCarFlexNamePrice);
+    carInfoContainer.appendChild(carInfo);
+    carInfoContainer.appendChild(carLocation);
+
+    carContainer.appendChild(carImg);
+    carContainer.appendChild(carInfoContainer);
+}
+
+function populateWithRandomCards(amount, data, type) {
     let showIdx = [];
 
     // Parse the CSV data
-
-    console.log(data);
-
-    // Get the container to append car cards
-    let container = document.querySelector('#listOfCarsUl');
 
     if (amount > data.length-1) amount = data.length-1;
 
@@ -42,50 +141,22 @@ function populateWithRandomCards(amount, data) {
             showIdx.push(idx);
         }
 
-        // Create a new div for each car
-        let carLink = document.createElement('a');
-        carLink.href = 'https://www.google.com';
-        carLink.target = '_blank';
-        container.appendChild(carLink);
-
-        let carContainer = document.createElement('li');
-
-        carLink.appendChild(carContainer);
-
-        let carImg = document.createElement('img');
-        carImg.className = 'card-image';
-        carImg.src = data[idx].Img;
-        carImg.height = '300';
-
-        let carName = document.createElement('p');
-        carName.className = 'card-car-name';
-        carName.innerHTML = data[idx].Make + ' ' + data[idx].Model;
-
-        let carInfoContainer = document.createElement('div');
-        carInfoContainer.className = 'car-info-container';
-
-        let carInfo = document.createElement('p');
-        carInfo.className = 'card-car-info';
-        carInfo.innerHTML = data[idx].Kilometer + 'km | Lotação máx: ' + data[idx].SeatingCapacity + ' | Cor: ' + data[idx].Color + ' | ' + data[idx].Engine;
-        carInfoContainer.appendChild(carInfo);
-
-        let carPrice = document.createElement('p');
-        carPrice.className = 'card-car-price';
-        carPrice.innerHTML = data[idx].Price / 100 + '€';
-
-        carContainer.appendChild(carImg);
-        carContainer.appendChild(carName);
-        carContainer.appendChild(carInfoContainer);
-        carContainer.appendChild(carPrice);
+        if(type == "index") {
+            displayIndexCar(idx, data);
+        } else if(type == "cars") {
+            displayCarsCar(idx, data);
+        }
     }
 }
 
-function loadCars() {
+export function loadCars(amount, type) {
     loadCSV().then(data => {
-        console.log(data);
-
-        populateWithRandomCards(10, data);
+        populateWithRandomCards(amount, data, type);
     });
 }
 
-loadCars();
+export function loadFoundCars(input) {
+    loadCSV().then(data => {
+        search(input, data)
+    });
+}

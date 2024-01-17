@@ -7,7 +7,6 @@
     <title>GarageTop - Carros</title>
     <link rel="stylesheet" href="/styles/template.css"> <!-- /GarageTop/styles/template.css -->
     <link rel="stylesheet" href="/styles/cars.css"> <!-- /GarageTop/styles/cars.css -->
-    <link rel="stylesheet" href="/styles/cards.css"> <!-- /GarageTop/styles/cards.css -->
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/images/logo-white.png"> <!-- /GarageTop/images/logo-white.png -->
 </head>
@@ -17,13 +16,16 @@
         <a href="/views/index.html"><img src="/images/logo-white.png" alt="Logo"></a> <!-- /GarageTop/images/logo-white.png -->
 
         <div class="header-button-container">
-            <a href="/views/login.html"><button id="login-button">Login</button></a> <!-- /GarageTop/views/login.html -->
+        <a href="/views/login.html"><button id="login-button">Login</button></a> <!-- /GarageTop/views/login.html -->
         </div>
     </header>
 
     <nav-bar>
         <nav>
             <ul>
+                <a href="/views/index.html">
+                    <li>Home</li>
+                </a>
                 <a href="#carros">
                     <li>Veículos</li>
                 </a>
@@ -40,110 +42,35 @@
 
     <section id="carros">
         <input type="text" class="search-bar" placeholder="Pesquisa...">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+        <script src="/js/search.js" type="module"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+        <script src="/js/CarsCardsLoader.js" type="module"></script>
+
+        <script>
+            let searchBar = document.querySelector(".search-bar");
+
+            function clearAllCars() {
+                let listOfCarsUl = document.getElementById("listOfCarsUl");
+                while (listOfCarsUl.firstChild) {
+                    listOfCarsUl.removeChild(listOfCarsUl.firstChild);
+                }
+            }
+
+            searchBar.oninput = function() {
+                if(searchBar.value != "") {
+                    clearAllCars();
+                    loadFoundCars(searchBar.value);
+                } else {
+                    console.log("pega")
+                    clearAllCars();
+                    loadCars(999, "cars");
+                }
+            }
+        </script>
 
         <div class="car-cards-container search-car">
-            <ul>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/amg-gt.png">
-                        <div class="card-car-name">Mercedez-AMG GT Coupé</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">577HP | 3 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">230.000€</div>
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/BMW_X6_M60i.png">
-                        <div class="card-car-name">BMW X6 M60i</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">523HP | 5 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">135.000€</div>
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/G-Class-Wagon-G63.png">
-                        <div class="card-car-name">G-Class Wagon G63</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">585HP | 5 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">180.000€</div>
-
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/2017_bentley_continental_gt_v8.png">
-                        <div class="card-car-name">Bentley continental GT</div> <!--nome-->
-                        <div class="car-info-container">
-                            <div class="card-car-info">542HP | 3 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">275.000€</div>
-
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/amg-gt.png">
-                        <div class="card-car-name">Mercedez-AMG GT Coupé</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">577HP | 3 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">230.000€</div>
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/BMW_X6_M60i.png">
-                        <div class="card-car-name">BMW X6 M60i</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">523HP | 5 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">135.000€</div>
-
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/G-Class-Wagon-G63.png">
-                        <div class="card-car-name">G-Class Wagon G63</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">585HP | 5 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">180.000€</div>
-
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/2017_bentley_continental_gt_v8.png">
-                        <div class="card-car-name">Bentley continental GT</div> <!--nome-->
-                        <div class="car-info-container">
-                            <div class="card-car-info">542HP | 3 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">275.000€</div>
-
-
-                    </li>
-                </a>
-                <a href="https://www.google.com " target="_blank">
-                    <li>
-                        <img class="card-image" src="/images/cars/amg-gt.png">
-                        <div class="card-car-name">Mercedez-AMG GT Coupé</div>
-                        <div class="car-info-container">
-                            <div class="card-car-info">577HP | 3 Portas | Gasolina | Automatico</div>
-                        </div>
-                        <div class="card-car-price">230.000€</div>
-                    </li>
-                </a>
+            <ul id="listOfCarsUl">
             </ul>
         </div>
     </section>
@@ -173,7 +100,6 @@
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
 </body>
 
 </html>
