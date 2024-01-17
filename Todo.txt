@@ -4,9 +4,9 @@ Todo o código devidamente validado pelo W3C Validator HTML e CSS.
 
 -Organizar CSS
 
-===== Implementar =====
-
 -Csv > JSON
+
+===== Implementar =====
 
 -View apresentação do carro
 
