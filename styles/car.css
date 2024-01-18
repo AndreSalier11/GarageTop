@@ -1,12 +1,42 @@
-body{
+body {
     text-decoration: none;
     color: white;
 }
-.car-card-container-flex  {
+
+.image-container {
+    position: relative;
+    border-radius: 15px;
+}
+
+.leftBtn, .rightBtn {
+    position: absolute;
+    color: White;
+    font-weight: bolder;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #414141;
+    border: none;
+    font-size: 2rem;
+}
+
+.leftBtn {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.rightBtn {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.car-card-container-flex {
     display: flex;
     gap: 25px;
-}   
-.car-card-container  {
+}
+
+.car-card-container {
     gap: 100px;
     margin: 20px;
     padding: 15px;
@@ -16,14 +46,16 @@ body{
     border-radius: 15px;
     transition: margin .5s, padding .5s, border-radius .5s;
     box-sizing: border-box;
-}   
-.car-all-info-container{
+}
+
+.car-all-info-container {
     background-color: #414141;
     border-radius: 20px;
     width: 100%;
     text-align: start;
     max-height: 500px;
 }
+
 .card-image {
     border-radius: 15px;
     object-fit: cover;
@@ -31,25 +63,60 @@ body{
     max-width: 800px;
     max-height: 500px;
     width: 800px;
-    height: 500px   ;
+    height: 500px;
 }
-.car-info-container{
+
+.car-info-container {
     padding: 15px;
     margin-left: 20px;
 }
-.card-car-name{
+
+.card-car-name {
     margin-top: 20px;
     font-size: 2.5rem;
     text-align: center;
 }
 
-.card-car-price{
+.card-car-price {
     font-size: 2rem;
     margin-right: 20px;
     text-align: start;
     margin-left: 20px;
 }
-.discription-car{
+
+.discription-car {
     margin-top: 20px;
     max-width: 800px;
+}
+
+.car-card-more-info{
+    text-decoration: none;
+    width: 70%;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #414141;
+    gap: 20px;
+    height: 200px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+.car-card-more-info li{
+    list-style-type: none;
+}
+.videoplayer-flex{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+.videoplayer iframe{
+    border-radius: 5px;
+    border-color: transparent;
+    margin-left: 100px;
+}
+.loading{
+    position: absolute;
+    left: 0;
+    z-index: -1;
 }

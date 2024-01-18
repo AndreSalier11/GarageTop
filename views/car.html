@@ -23,10 +23,10 @@
     <nav-bar>
         <nav>
             <ul>
-                <a href="#home">
+                <a href="/views/index.html">
                     <li>Home</li>
                 </a>
-                <a href="#veiculos">
+                <a href="#carros">
                     <li>Veículos</li>
                 </a>
                 <a href="#contacto">
@@ -42,13 +42,68 @@
             <div class="nav-mask"></div>
         </nav-mask>
     </nav-bar>
-    
+
     <div class="car-card-container">
         <div class="car-card-container-flex">
-            <a href="https://www.google.com " target="_blank">
-                <img class="card-image" src="/images/cars/amg-gt.png">
+            <div class="image-container">
+                <script src="/js/imageLoader.js" type="module"></script>
+                <script type="module">
+                    import imageLoader from "/js/imageLoader.js";
+                    import {loadCSV} from "/js/csvLoader.js";
 
-            </a>
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const idx = urlParams.get('idx');
+
+                    async function runImageLoader(idx) {
+                        return await loadCSV().then(data => {
+                            return imageLoader(data, idx);;
+                        });
+                    }
+
+                    let imageList = await runImageLoader(idx);
+
+                    console.log(imageList);
+
+                    if(imageList.length == 0) {
+                        document.querySelector(".leftBtn").style.display = "block";
+                        document.querySelector(".rightBtn").style.display = "block";
+                    }
+
+                    let imageIdx = 0;
+
+                    window.leftImage =function leftImage() {
+                        console.log("previous image");
+                        if(imageIdx == 0) {
+                            imageIdx = imageList.length - 1;
+                        } else {
+                            imageIdx--;
+                        }
+                        
+                        console.log(imageList[imageIdx]);
+                        document.querySelector(".card-image").src = imageList[imageIdx];
+                    }
+
+                    window.rightImage =function rightImage() {
+                        console.log("next image");
+                        document.querySelector(".loading").style.zIndex = "0";
+                        if(imageIdx == imageList.length - 1) {
+                            imageIdx = 0;
+                        } else {
+                            imageIdx++;
+                        }
+
+                        console.log(imageList[imageIdx]);
+                        document.querySelector(".card-image").src = imageList[imageIdx];
+                    }
+                </script>
+
+                <img class="card-image" src="/images/cars/amg-gt.png" onerror="rightImage()" onload="document.querySelector('.loading').style.zIndex = '-1'">
+                <img class="loading card-image" src="/images/loadingGif.gif"">
+                <button class="leftBtn" onclick="leftImage()"><</button>
+                <button class="rightBtn" onclick="rightImage()">></button>
+                
+            </div>
+
             <div class="car-all-info-container">
                 <div class="card-car-name">Mercedez-AMG GT Coupé</div>
                 <br>
@@ -58,22 +113,94 @@
                 <div class="card-car-price">230.000€</div>
             </div>
         </div>
-        <div class="discription-car">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex officiis quaerat consequuntur,  voluptate nobis animi cumque eligendi alias magnam veniam accusantium unde itaque, nemo delectus quidem explicabo quae vitae aperiam placeat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam perspiciatis inventore officiis nemo hic iste provident autem ipsum repellendus, magni quo tempora et sint voluptatem quisquam ipsam odio corrupti nostrum? lore
-            <br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia aliquam recusandae fuga delectus at, assumenda ducimus nihil. Minus repellendus doloribus deleniti ipsum quis rem harum. Distinctio facere voluptas inventore eveniet!
+        <div class="videoplayer-flex">
+            <div class="discription-car">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex officiis quaerat consequuntur,
+                voluptatenobis animi cumque eligendi alias magnam veniam accusantium unde itaque, nemo delectus quidem
+                explicaboquae vitae aperiam placeat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam
+                perspiciatis inventore officiis nemo hic iste provident autem ipsum repellendus, magni quo tempora et
+                sint voluptatem quisquam ipsam odio corrupti nostrum? lore
+                <br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia aliquam recusandae fuga delectus at,
+                assumenda ducimus nihil. Minus repellendus doloribus deleniti ipsum quis rem harum. Distinctio facere
+                voluptas inventore eveniet!
+            </div>
+            <div class="videoplayer">
+                <iframe width="420" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+            </div>  
         </div>
-
+        <ul class="car-card-more-info">
+            <li>
+                <div class="make more-info">Marca:</div>
+            </li>
+            <li>
+                <div class="model more-info">Modelo:</div>
+            </li>
+            <li>
+                <div class="price more-info">Preço:</div>
+            </li>
+            <li>
+                <div class="year more-info">Ano:</div>
+            </li>
+            <li>
+                <div class="kilometer more-info">Quilómetros:</div>
+            </li>
+            <li>
+                <div class="fuel-type more-info">Combustível:</div>
+            </li>
+            <li>
+                <div class="transmission more-info">Transmissão:</div>
+            </li>
+            <li>
+                <div class="location more-info">Localização:</div>
+            </li>
+            <li>
+                <div class="color more-info">Cor:</div>
+            </li>
+            <li>
+                <div class="owner more-info">Proprietário:</div>
+            </li>
+            <li>
+                <div class="seller-type more-info">Vendedor:</div>
+            </li>
+            <li>
+                <div class="engine more-info">Motor:</div>
+            </li>
+            <li>
+                <div class="max-power more-info">Potência Máxima:</div>
+            </li>
+            <li>
+                <div class="max-torque more-info">Binário Máximo:</div>
+            </li>
+            <li>
+                <div class="drivetrain more-info">Tração:</div>
+            </li>
+            <li>
+                <div class="length more-info">Comprimento:</div>
+            </li>
+            <li>
+                <div class="width more-info">Largura:</div>
+            </li>
+            <li>
+                <div class="height more-info">Altura:</div>
+            </li>
+            <li>
+                <div class="seating-capacity more-info">Assentos:</div>
+            </li>
+            <li>
+                <div class="fuel-tank-capacity more-info">Capacidade de Combustível:</div>
+            </li>
+        </ul>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script type="module">
         import { getCarIdx } from "/js/getCar.js";
-    
+
         async function loadCar() {
             const urlParams = new URLSearchParams(window.location.search);
             const idx = urlParams.get('idx');
-
             const car = await getCarIdx(idx);
 
             document.querySelector(".card-image").src = car.Img;
@@ -81,11 +208,36 @@
             document.querySelector(".card-car-info").innerHTML = car.Kilometer + 'km | Lotação máx: ' + car.SeatingCapacity + ' | Cor: ' + car.Color + ' | ' + car.Engine;
             document.querySelector(".card-car-price").innerHTML = car.Price / 100 + '€';
         }
-        
+
         loadCar();
-       
+
     </script>
 
     </div>
+
+    <footer id="contacto">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7840.022484374243!2d-9.114695220097833!3d38.76551585301935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933556a87e12f%3A0xe30bc791b6590d69!2sCGI!5e0!3m2!1spt-PT!2spt!4v1701859007818!5m2!1spt-PT!2spt"
+            width="350" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+        <div class="info-contato">
+            <p>Telefone: (XX) XXXX-XXXX</p>
+            <p>E-mail: contato@nomedarevenda.com</p>
+            <p>Endereço: Rua Fictícia, 1234, Cidade Fictícia, Estado</p>
+            <p>Horário de Funcionamento: Segunda a Sexta, das 9h às 18h; Sábado, das 9h às 14h</p>
+            <p>Redes Sociais:
+                <a href="https://www.instagram.com/nomedarevenda" target="_blank">@nomedarevenda
+                </a> |
+                <a href="https://www.facebook.com/nomedarevenda" target="_blank">/nomedarevenda
+                </a>
+            </p>
+        </div>
+
+        <div class="footer-copyright">
+            <p>&copy; 2023 Concessionária XYZ</p>
+        </div>
+    </footer>
 
 </html>

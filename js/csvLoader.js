@@ -1,4 +1,4 @@
-async function loadCSV () {
+export async function loadCSV () {
     return fetch('/data/custom_car_list.csv')
     .then(response => response.text())
     .then(data => {
@@ -35,7 +35,7 @@ function displayIndexCar(idx, data) {
     let container = document.querySelector('#listOfCarsUl');
     // Create a new div for each car
     let carLink = document.createElement('a');
-    carLink.href = 'https://www.google.com';
+    carLink.href = '/views/car.html?idx=' + idx;
     carLink.target = '_blank';
     container.appendChild(carLink);
 
