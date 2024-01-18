@@ -75,7 +75,7 @@ function displayCarsCar(idx, data) {
     let container = document.querySelector('#listOfCarsUl');
     // Create a new div for each car
     let carLink = document.createElement('a');
-    carLink.href = 'https://www.google.com';
+    carLink.href = '/views/car.html?idx=' + idx;
     carLink.target = '_blank';
     container.appendChild(carLink);
 
@@ -158,5 +158,11 @@ export function loadCars(amount, type) {
 export function loadFoundCars(input) {
     loadCSV().then(data => {
         search(input, data)
+    });
+}
+
+export async function getCarIdx(idx) {
+    return await loadCSV().then(data => {
+        return getCar(idx, data);
     });
 }
