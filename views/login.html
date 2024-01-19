@@ -5,35 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0 , minimum-scale=1.0 , maximum-scale=1.0" />
     <title>GarageTop - login</title>
-    <link rel="stylesheet" href="/styles/template.css"> <!-- /GarageTop/styles/template.css -->
-    <link rel="stylesheet" href="/styles/login.css"> <!-- /GarageTop/styles/login.css -->
+    <link rel="stylesheet" href="/GarageTop/styles/template.css"> <!-- /GarageTop/styles/template.css -->
+    <link rel="stylesheet" href="/GarageTop/styles/login.css"> <!-- /GarageTop/styles/login.css -->
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/images/logo-white.png"> <!-- /GarageTop/images/logo-white.png -->
+    <link rel="icon" type="image/png" href="/GarageTop/images/logo-white.png"> <!-- /GarageTop/images/logo-white.png -->
 </head>
 
 <body>
     <div class="login-content">
-        <img src="/images/logo-darkblue.png" alt="Logo" style="width: 200px; margin: 30px;"> <!-- /GarageTop/images/logo-darkblue.png -->
-    
+        <img src="/GarageTop/images/logo-darkblue.png" alt="Logo" style="width: 200px; margin: 30px;">
+        <!-- /GarageTop/images/logo-darkblue.png -->
+
         <section class="login">
-            
-            
-            <div class="login-container">
-    
+
+            <form class="login-container" onsubmit="event.preventDefault(); login();">
                 <p>Email</p>
-                <input id="input-email" type="email" placeholder="example@garagetop.com" required>
-    
+                <input id="input-email" type="email" placeholder="example@garagetop.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+
                 <p>Password</p>
-                <input type="password" placeholder="password" required>
-    
-                <button class="login-btn" onclick="alert('Login!'); window.location.href = '/views/index.html'">Login</button>
-                <button class="login-cancel" onclick="window.location.href = '/views/index.html'">Cancel</button>
-    
-            </div>
-            
+                <input id="input-password" type="password" minlength="8" placeholder="password" required>
+
+                <button class="login-btn" type="submit">Login</button>
+                <button class="login-cancel" onclick="window.location.href = '/GarageTop/views/index.html'">Cancelar</button>
+            </form>
+
         </section>
     </div>
-    
+
     <footer id="contacto">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7840.022484374243!2d-9.114695220097833!3d38.76551585301935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933556a87e12f%3A0xe30bc791b6590d69!2sCGI!5e0!3m2!1spt-PT!2spt!4v1701859007818!5m2!1spt-PT!2spt"
@@ -53,13 +51,38 @@
                 </a>
             </p>
         </div>
-        
+
         <div class="footer-copyright">
             <p>&copy; 2023 Concessionária XYZ</p>
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="Js/utils.js">
+
+    </script>
+    <script>
+        var email = "123@gmail.com";
+        var password = "12345678";
+
+        document.cookie.clear;
+        const loginInfo = `${email}:${password}`;
+        document.cookie = `loginInfo=${loginInfo}`;
+
+        function login() {
+            var emailtry = document.getElementById("input-email").value;
+            var passwordtry = document.getElementById("input-password").value;
+            
+            var loginInfotry = document.cookie;
+            if (loginInfotry === `loginInfo=${emailtry}:${passwordtry}`) {
+                alert("Login efetuado com sucesso!");
+                location.replace("/views/index.html");
+            }
+            else
+            {
+                alert("Login falhou!");
+            }
+        }
+    </script>
 </body>
 
 </html>

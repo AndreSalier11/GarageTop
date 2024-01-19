@@ -5,38 +5,46 @@
     <title>GarageTop</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0 , minimum-scale=1.0 , maximum-scale=1.0" />
-    <link rel="stylesheet" href="/styles/template.css"> <!-- /GarageTop/styles/template.css -->
-    <link rel="stylesheet" href="/styles/home.css"> <!-- /GarageTop/styles/home.css -->
-    <link rel="stylesheet" href="/styles/cards.css"> <!-- /GarageTop/styles/cards.css -->
+    <link rel="stylesheet" href="/GarageTop/styles/template.css"> <!-- /GarageTop/styles/template.css -->
+    <link rel="stylesheet" href="/GarageTop/styles/home.css"> <!-- /GarageTop/styles/home.css -->
+    <link rel="stylesheet" href="/GarageTop/styles/cards.css"> <!-- /GarageTop/styles/cards.css -->
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/images/logo-white.png"> <!-- /GarageTop/images/logo-white.png -->
+    <link rel="icon" type="image/png" href="/GarageTop/images/logo-white.png"> <!-- /GarageTop/images/logo-white.png -->
 </head>
 
 <body>
     <header id="home">
-        <img src="/images/logo-white.png" alt="Logo"> <!-- /GarageTop/images/logo-white.png -->
+        <img src="/GarageTop/images/logo-white.png" alt="Logo"> <!-- /GarageTop/images/logo-white.png -->
 
         <div class="header-button-container">
-            <a href="/views/login.html"><button id="login-button">Login</button></a>
+            <a id="link_login" href="/GarageTop/views/login.html"><button id="login-button">Login</button></a>
             <!-- /GarageTop/views/login.html -->
+            <script>
+                if (document.cookie.includes(":")) {
+
+                    const cookieValue = document.cookie;
+                    const email = document.cookie.split('=')[1].split(':')[0];
+
+                    document.querySelector('#link_login').remove();
+                    document.write(`${email}   `);
+                    document.write(`<button id="login-button" onclick="logout()">Logout</button>`);
+
+                    function logout() {
+                        document.cookie = "loginInfo=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                        location.reload();
+                    }
+                }
+            </script>
         </div>
     </header>
 
     <nav-bar>
         <nav>
             <ul>
-                <a href="#home">
-                    <li>Home</li>
-                </a>
-                <a href="#veiculos">
-                    <li>Veículos</li>
-                </a>
-                <a href="#contacto">
-                    <li>Contacto</li>
-                </a>
-                <a href="/views/cars.html">
-                    <li>Pesquisar</li>
-                </a>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#veiculos">Veículos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="/views/cars.html">Pesquisar</a></li>
             </ul>
         </nav>
 
@@ -46,7 +54,7 @@
     </nav-bar>
 
     <section class="home-img-container">
-        <img class="imageHome" src="/images/home_wallpaper.jpeg"> <!-- /GarageTop/images/logo-white.png -->
+        <img class="imageHome" src="/GarageTop/images/home_wallpaper.jpeg" alt="imageHome"> <!-- /GarageTop/images/logo-white.png -->
 
         <h1>O Futuro Está nos Automóveis</h1>
         <h2>GarageTop</h2>
@@ -58,11 +66,11 @@
         <div class="car-cards-container">
             <ul id="listOfCarsUl">
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-                <script src="/js/IndexCardsLoader.js" type="module"></script>
+                <script src="/GarageTop/js/IndexCardsLoader.js" type="module"></script>
             </ul>
         </div>
 
-        <a href="/views/cars.html"><button class="showmore-btn">Mostrar Mais...</button></a>
+        <a href="/GarageTop/views/cars.html"><button class="showmore-btn">Mostrar Mais...</button></a>
     </section>
 
     <footer id="contacto">

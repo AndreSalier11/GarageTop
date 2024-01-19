@@ -81,4 +81,13 @@
         margin-top: 80px;
         width: 90%;
     }
+    .car-cards-container li{
+        margin-left: 0;
+        width: 95%;
+        flex-wrap: wrap
+    }
+    .card-image{
+        width: 75%;
+        margin: 0 auto;
+    }
 }

@@ -13,12 +13,12 @@
     padding-bottom: 10px;
 }
 
-.card-car-price{
+.card-car-price {
     font-size: 1.6em;
     text-align: end;
 }
 
-.car-info-container{
+.car-info-container {
     display: flex;
     width: 100%;
     font-size: 0.8em;
@@ -37,18 +37,18 @@
     box-sizing: border-box;
 }
 
-    .car-cards-container ul:hover li {
-        margin: 25px;
-        padding: 10px;
-        border-radius: 15px;
-    }
+.car-cards-container ul:hover li {
+    margin: 25px;
+    padding: 10px;
+    border-radius: 15px;
+}
 
-        .car-cards-container ul li:hover {
-            margin: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
+.car-cards-container ul li:hover {
+    margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
 .card-image {
     border-radius: 15px;
@@ -78,3 +78,4 @@
     text-decoration: none;
     color: white;
 }
+

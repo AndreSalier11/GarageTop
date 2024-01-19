@@ -1,5 +1,5 @@
 export async function loadCSV () {
-    return fetch('/data/custom_car_list.csv')
+    return fetch('/GarageTop/data/custom_car_list.csv')
     .then(response => response.text())
     .then(data => {
         return Papa.parse(data, {header: true}).data;
@@ -35,8 +35,8 @@ function displayIndexCar(idx, data) {
     let container = document.querySelector('#listOfCarsUl');
     // Create a new div for each car
     let carLink = document.createElement('a');
-    carLink.href = '/views/car.html?idx=' + idx;
-    carLink.target = '_blank';
+    carLink.href = '/GarageTop/views/car.html?idx=' + idx;
+    // carLink.target = '_blank';
     container.appendChild(carLink);
 
     let carContainer = document.createElement('li');
@@ -75,11 +75,12 @@ function displayCarsCar(idx, data) {
     let container = document.querySelector('#listOfCarsUl');
     // Create a new div for each car
     let carLink = document.createElement('a');
-    carLink.href = '/views/car.html?idx=' + idx;
-    carLink.target = '_blank';
+    carLink.href = '/GarageTop/views/car.html?idx=' + idx;
+    // carLink.target = '_blank';
     container.appendChild(carLink);
 
     let carContainer = document.createElement('li');
+    carContainer.className = 'li-card-car';
     carLink.appendChild(carContainer);
 
     let carImg = document.createElement('img');

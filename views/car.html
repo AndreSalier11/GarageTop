@@ -4,37 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/template.css">
-    <link rel="stylesheet" href="/styles/car.css">
+    <link rel="stylesheet" href="/GarageTop/styles/template.css">
+    <link rel="stylesheet" href="/GarageTop/styles/car.css">
     <title>Document</title>
 </head>
 
 <body>
     <header id="home">
-        <a href="/views/index.html"><img src="/images/logo-white.png" alt="Logo"></a>
+        <a href="/GarageTop/views/index.html"><img src="/GarageTop/images/logo-white.png" alt="Logo"></a>
         <!-- /GarageTop/images/logo-white.png -->
 
         <div class="header-button-container">
-            <a href="/views/login.html"><button id="login-button">Login</button></a>
+            <a id="link_login" href="/GarageTop/views/login.html"><button id="login-button">Login</button></a>
             <!-- /GarageTop/views/login.html -->
+            <script>
+                if (document.cookie.includes(":")) {
+
+                    const cookieValue = document.cookie;
+                    const email = document.cookie.split('=')[1].split(':')[0];
+    
+                    document.querySelector('#link_login').remove();
+                    document.write(`${email}   `);
+                    document.write(`<button id="login-button" onclick="logout()">Logout</button>`);
+
+                    function logout() {
+                        document.cookie = "loginInfo=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                        location.reload();
+                    }
+                }
+            </script>
         </div>
     </header>
 
     <nav-bar>
         <nav>
-            <ul>
-                <a href="/views/index.html">
-                    <li>Home</li>
-                </a>
-                <a href="#carros">
-                    <li>Veículos</li>
-                </a>
-                <a href="#contacto">
-                    <li>Contacto</li>
-                </a>
-                <a href="/views/cars.html">
-                    <li>Pesquisar</li>
-                </a>
+            <ul> 
+                <li><a href="/GarageTop/views/index.html">Home</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="/GarageTop/views/cars.html">Pesquisar</a></li>
             </ul>
         </nav>
 
@@ -46,10 +53,48 @@
     <div class="car-card-container">
         <div class="car-card-container-flex">
             <div class="image-container">
-                <script src="/js/imageLoader.js" type="module"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
                 <script type="module">
-                    import imageLoader from "/js/imageLoader.js";
-                    import {loadCSV} from "/js/csvLoader.js";
+                    import { getCarIdx } from "/js/getCar.js";
+
+                    async function loadCar() {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const idx = urlParams.get('idx');
+                        const car = await getCarIdx(idx);
+
+                        window.imgIdx = car.Img.split("/")[4].split("f")[1];
+
+                        document.querySelector(".card-image").src = car.Img;
+                        document.querySelector(".card-car-name").innerHTML = car.Make + ' ' + car.Model;
+                        document.querySelector(".card-car-info").innerHTML = car.Kilometer + 'km | Lotação máx: ' + car.SeatingCapacity + ' | Cor: ' + car.Color + ' | ' + car.Engine;
+                        document.querySelector(".card-car-price").innerHTML = car.Price / 100 + '€';
+
+                        //Specs
+                        document.querySelector(".make").innerHTML = car.Make;
+                        document.querySelector(".model").innerHTML = car.Model;
+                        document.querySelector(".price").innerHTML = car.Price / 100 + '€';
+                        document.querySelector(".year").innerHTML = car.Year;
+                        document.querySelector(".kilometer").innerHTML = car.Kilometer + 'km';
+                        document.querySelector(".fuel-type").innerHTML = car.FuelType;
+                        document.querySelector(".transmission").innerHTML = car.Transmission;
+                        document.querySelector(".location").innerHTML = car.Location;
+                        document.querySelector(".color").innerHTML = car.Color;
+                        document.querySelector(".owner").innerHTML = car.Owner;
+                        document.querySelector(".engine").innerHTML = car.Engine;
+                        document.querySelector(".max-power").innerHTML = car.MaxPower;
+                        document.querySelector(".max-torque").innerHTML = car.MaxTorque;
+                        document.querySelector(".drivetrain").innerHTML = car.Drivetrain;
+                        document.querySelector(".seating-capacity").innerHTML = car.SeatingCapacity;
+                        document.querySelector(".fuel-tank-capacity").innerHTML = car.FuelTankCapacity;
+                    }
+
+                    loadCar();
+
+                </script>
+                <script src="/GarageTop/js/imageLoader.js" type="module"></script>
+                <script type="module">
+                    import imageLoader from "/GarageTop/js/imageLoader.js";
+                    import {loadCSV} from "/GarageTop/js/csvLoader.js";
 
                     const urlParams = new URLSearchParams(window.location.search);
                     const idx = urlParams.get('idx');
@@ -62,45 +107,49 @@
 
                     let imageList = await runImageLoader(idx);
 
-                    console.log(imageList);
-
                     if(imageList.length == 0) {
                         document.querySelector(".leftBtn").style.display = "block";
                         document.querySelector(".rightBtn").style.display = "block";
                     }
 
-                    let imageIdx = 0;
+                    // window.imgIdx = 0;
+                    console.log(window.imgIdx)
+
+                    window.imageArrow = 0;
 
                     window.leftImage =function leftImage() {
                         console.log("previous image");
-                        if(imageIdx == 0) {
-                            imageIdx = imageList.length - 1;
+                        imageArrow = 2;
+                        document.querySelector(".loading").style.zIndex = "0";
+                        if(imgIdx == 0) {
+                            imgIdx = imageList.length - 1;
                         } else {
-                            imageIdx--;
+                            imgIdx--;
                         }
                         
-                        console.log(imageList[imageIdx]);
-                        document.querySelector(".card-image").src = imageList[imageIdx];
+                        console.log(imageList[imgIdx]);
+                        document.querySelector(".card-image").src = imageList[imgIdx];
                     }
 
                     window.rightImage =function rightImage() {
                         console.log("next image");
+                        imageArrow = 1;
                         document.querySelector(".loading").style.zIndex = "0";
-                        if(imageIdx == imageList.length - 1) {
-                            imageIdx = 0;
+                        if(imgIdx == imageList.length - 1) {
+                            imgIdx = 0;
                         } else {
-                            imageIdx++;
+                            imgIdx++;
                         }
 
-                        console.log(imageList[imageIdx]);
-                        document.querySelector(".card-image").src = imageList[imageIdx];
+                        console.log(imageList[imgIdx]);
+                        document.querySelector(".card-image").src = imageList[imgIdx];
                     }
                 </script>
 
-                <img class="card-image" src="/images/cars/amg-gt.png" onerror="rightImage()" onload="document.querySelector('.loading').style.zIndex = '-1'">
-                <img class="loading card-image" src="/images/loadingGif.gif"">
-                <button class="leftBtn" onclick="leftImage()"><</button>
-                <button class="rightBtn" onclick="rightImage()">></button>
+                <img class="card-image" src="/GarageTop/images/cars/amg-gt.png" alt="default img" onerror="if(imageArrow == 1) {rightImage()} else {leftImage()}" onload="document.querySelector('.loading').style.zIndex = '-1'">
+                <img class="loading card-image" src="/GarageTop/images/loadingGif.gif" alt="loading animation">
+                <button class="leftBtn" onclick="leftImage()">&lt;</button>
+                <button class="rightBtn" onclick="rightImage()">&gt;</button>
                 
             </div>
 
@@ -113,106 +162,56 @@
                 <div class="card-car-price">230.000€</div>
             </div>
         </div>
-        <div class="videoplayer-flex">
-            <div class="discription-car">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex officiis quaerat consequuntur,
-                voluptatenobis animi cumque eligendi alias magnam veniam accusantium unde itaque, nemo delectus quidem
-                explicaboquae vitae aperiam placeat. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam
-                perspiciatis inventore officiis nemo hic iste provident autem ipsum repellendus, magni quo tempora et
-                sint voluptatem quisquam ipsam odio corrupti nostrum? lore
-                <br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia aliquam recusandae fuga delectus at,
-                assumenda ducimus nihil. Minus repellendus doloribus deleniti ipsum quis rem harum. Distinctio facere
-                voluptas inventore eveniet!
-            </div>
-            <div class="videoplayer">
-                <iframe width="420" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                </iframe>
-            </div>  
-        </div>
         <ul class="car-card-more-info">
             <li>
-                <div class="make more-info">Marca:</div>
+                <span>Marca: </span><span class="make more-info"></span>
             </li>
             <li>
-                <div class="model more-info">Modelo:</div>
+                <span>Modelo: </span><span class="model more-info"></span>
             </li>
             <li>
-                <div class="price more-info">Preço:</div>
+                <span>Preço: </span><span class="price more-info"></span>
             </li>
             <li>
-                <div class="year more-info">Ano:</div>
+                <span>Ano: </span><span class="year more-info"></span>
             </li>
             <li>
-                <div class="kilometer more-info">Quilómetros:</div>
+                <span>Quilómetros: </span><span class="kilometer more-info"></span>
             </li>
             <li>
-                <div class="fuel-type more-info">Combustível:</div>
+                <span>Combustível: </span><span class="fuel-type more-info"></span>
             </li>
             <li>
-                <div class="transmission more-info">Transmissão:</div>
+                <span>Transmissão: </span><span class="transmission more-info"></span>
             </li>
             <li>
-                <div class="location more-info">Localização:</div>
+                <span>Localização: </span><span class="location more-info"></span>
             </li>
             <li>
-                <div class="color more-info">Cor:</div>
+                <span>Cor: </span><span class="color more-info"></span>
             </li>
             <li>
-                <div class="owner more-info">Proprietário:</div>
+                <span>Proprietário: </span><span class="owner more-info"></span>
             </li>
             <li>
-                <div class="seller-type more-info">Vendedor:</div>
+                <span>Motor: </span><span class="engine more-info"></span>
             </li>
             <li>
-                <div class="engine more-info">Motor:</div>
+                <span>Potência Máxima: </span><span class="max-power more-info"></span>
             </li>
             <li>
-                <div class="max-power more-info">Potência Máxima:</div>
+                <span>Torque Máximo: </span><span class="max-torque more-info"></span>
             </li>
             <li>
-                <div class="max-torque more-info">Binário Máximo:</div>
+                <span>Tração: </span><span class="drivetrain more-info"></span>
             </li>
             <li>
-                <div class="drivetrain more-info">Tração:</div>
+                <span>Lotação: </span><span class="seating-capacity more-info"></span>
             </li>
             <li>
-                <div class="length more-info">Comprimento:</div>
-            </li>
-            <li>
-                <div class="width more-info">Largura:</div>
-            </li>
-            <li>
-                <div class="height more-info">Altura:</div>
-            </li>
-            <li>
-                <div class="seating-capacity more-info">Assentos:</div>
-            </li>
-            <li>
-                <div class="fuel-tank-capacity more-info">Capacidade de Combustível:</div>
+                <span>Capacidade de Combustível: </span><span class="fuel-tank-capacity more-info"></span>
             </li>
         </ul>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <script type="module">
-        import { getCarIdx } from "/js/getCar.js";
-
-        async function loadCar() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const idx = urlParams.get('idx');
-            const car = await getCarIdx(idx);
-
-            document.querySelector(".card-image").src = car.Img;
-            document.querySelector(".card-car-name").innerHTML = car.Make + ' ' + car.Model;
-            document.querySelector(".card-car-info").innerHTML = car.Kilometer + 'km | Lotação máx: ' + car.SeatingCapacity + ' | Cor: ' + car.Color + ' | ' + car.Engine;
-            document.querySelector(".card-car-price").innerHTML = car.Price / 100 + '€';
-        }
-
-        loadCar();
-
-    </script>
-
     </div>
 
     <footer id="contacto">

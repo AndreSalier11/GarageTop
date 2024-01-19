@@ -2,22 +2,32 @@ Todo o código devidamente validado pelo W3C Validator HTML e CSS.
 
 ======== Feito ========
 
--Organizar CSS
-
--Csv > JSON
-
--Sistema de pesquisa
+-View apresentação do carro > Rever o design e responsividade
+-Login > Funções que validem o input de dados nos formulários 
+-login funcional > com cookies
 
 ===== Implementar =====
 
--View apresentação do carro /////////
-
--melhorar o design /////////////
-
--Funções que validem o input de dados nos formulários 
-
--Funções que alterem propriedades dos elementos, como por exemplo, o estilo do(s) elementos
-
--login funcional
+-View pesquisa > Rever o design e responsividade
 
 -W3C Validator
+
+-Meter no AR
+
+Js/CarsCardsLoader.js ----------
+Js/csvLoader.js -------------
+Js/getCar.js --------- 
+Js/imageLoader.js ----------
+Js/IndexCardsLoader.js ---------
+Js/search.js ---------
+Js/utils.js -------
+styles/car.css ----------
+styles/cards.css ---------
+styles/cars.css --------
+styles/home.css ---------
+styles/login.css -----------
+styles/template.css ---------
+views/car.html
+views/cars.html
+views/index.html
+views/login.html

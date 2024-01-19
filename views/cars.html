@@ -5,33 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0 , minimum-scale=1.0 , maximum-scale=1.0" />
     <title>GarageTop - Carros</title>
-    <link rel="stylesheet" href="/styles/template.css"> <!-- /GarageTop/styles/template.css -->
-    <link rel="stylesheet" href="/styles/cars.css"> <!-- /GarageTop/styles/cars.css -->
+    <link rel="stylesheet" href="/GarageTop/styles/template.css">
+    <link rel="stylesheet" href="/GarageTop/styles/cars.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/images/logo-white.png"> <!-- /GarageTop/images/logo-white.png -->
+    <link rel="icon" type="image/png" href="/GarageTop/images/logo-white.png">
 </head>
 
 <body>
     <header id="home">
-        <a href="/views/index.html"><img src="/images/logo-white.png" alt="Logo"></a> <!-- /GarageTop/images/logo-white.png -->
+        <a href="/GarageTop/views/index.html"><img src="/GarageTop/images/logo-white.png" alt="Logo"></a>
 
         <div class="header-button-container">
-        <a href="/views/login.html"><button id="login-button">Login</button></a> <!-- /GarageTop/views/login.html -->
+            <a id="link_login" href="/GarageTop/views/login.html"><button id="login-button">Login</button></a>
+            <!-- /GarageTop/views/login.html -->
+            <script>
+                if (document.cookie.includes(":")) {
+
+                    const cookieValue = document.cookie;
+                    const email = document.cookie.split('=')[1].split(':')[0];
+    
+                    document.querySelector('#link_login').remove();
+                    document.write(`${email}   `);
+                    document.write(`<button id="login-button" onclick="logout()">Logout</button>`);
+
+                    function logout() {
+                        document.cookie = "loginInfo=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                        location.reload();
+                    }
+                }
+            </script>
         </div>
     </header>
 
     <nav-bar>
         <nav>
             <ul>
-                <a href="/views/index.html">
-                    <li>Home</li>
-                </a>
-                <a href="#carros">
-                    <li>Veículos</li>
-                </a>
-                <a href="#contacto">
-                    <li>Contacto</li>
-                </a>
+                <li><a href="/GarageTop/views/index.html">Home</a></li>
+                <li><a href="#carros">Veículos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
 
@@ -43,8 +54,8 @@
     <section id="carros">
         <input type="text" class="search-bar" placeholder="Pesquisa...">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-        <script src="/js/search.js" type="module"></script>
-        <script src="/js/CarsCardsLoader.js" type="module"></script>
+        <script src="/GarageTop/js/search.js" type="module"></script>
+        <script src="/GarageTop/js/CarsCardsLoader.js" type="module"></script>
 
         <script>
             let searchBar = document.querySelector(".search-bar");
